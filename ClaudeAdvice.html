@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAT Tutoring - Sales Call Playbook</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f7f5f2;
+    color: #0a0a0a;
+    padding: 40px 24px;
+  }
+  .page { max-width: 860px; margin: 0 auto; }
+
+  .header {
+    background: #0a0a0a;
+    padding: 32px 40px;
+    margin-bottom: 32px;
+  }
+  .header-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #c8a96e;
+    margin-bottom: 8px;
+  }
+  .header-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    color: #ffffff;
+    line-height: 1;
+  }
+  .header-title span { color: #c8a96e; }
+  .header-sub {
+    font-size: 14px;
+    color: #888;
+    margin-top: 8px;
+  }
+
+  .section {
+    background: #ffffff;
+    border-left: 4px solid #c8a96e;
+    padding: 28px 32px;
+    margin-bottom: 20px;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: #0a0a0a;
+    margin-bottom: 4px;
+  }
+  .section-desc {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+
+  .step {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #f0ede8;
+  }
+  .step:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .step-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    color: #c8a96e;
+    line-height: 1;
+    min-width: 32px;
+  }
+  .step-content { flex: 1; }
+  .step-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 4px;
+  }
+  .step-heading {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .step-body {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  .script-box {
+    background: #f7f5f2;
+    border-left: 3px solid #c8a96e;
+    padding: 14px 18px;
+    font-size: 14px;
+    color: #0a0a0a;
+    line-height: 1.6;
+    font-style: italic;
+    margin-top: 8px;
+  }
+  .script-box strong {
+    font-style: normal;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #c8a96e;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .rules-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .rule-card {
+    background: #f7f5f2;
+    padding: 16px 20px;
+  }
+  .rule-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .rule-label.do { color: #2d8a4e; }
+  .rule-label.dont { color: #c0392b; }
+  .rule-text {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5;
+  }
+
+  .counter-table { width: 100%; border-collapse: collapse; }
+  .counter-table th {
+    text-align: left;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #999;
+    padding: 8px 12px;
+    background: #f7f5f2;
+    border-bottom: 2px solid #e8e5e0;
+  }
+  .counter-table td {
+    padding: 14px 12px;
+    font-size: 14px;
+    border-bottom: 1px solid #f0ede8;
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .counter-table tr:last-child td { border-bottom: none; }
+  .counter-table td:first-child { color: #c0392b; font-weight: 600; width: 35%; }
+  .counter-table td:last-child { color: #2d8a4e; }
+
+  .pricing-box {
+    background: #0a0a0a;
+    padding: 24px 28px;
+    margin-top: 16px;
+  }
+  .pricing-box-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: #c8a96e;
+    margin-bottom: 12px;
+  }
+  .pricing-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #222;
+    font-size: 14px;
+  }
+  .pricing-row:last-child { border-bottom: none; }
+  .pricing-row-label { color: #888; }
+  .pricing-row-value { color: #ffffff; font-weight: 700; }
+
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-left: 8px;
+  }
+  .tag-red { background: #fde8e8; color: #c0392b; }
+  .tag-green { background: #e8f5e9; color: #2d8a4e; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="header-eyebrow">Internal Document - Romaan and Partner</div>
+    <div class="header-title">Sales Call <span>Playbook</span></div>
+    <div class="header-sub">SAT Tutoring - How to handle every call from first contact to close</div>
+  </div>
+
+  <!-- SECTION 1: IRON RULES -->
+  <div class="section">
+    <div class="section-title">Iron Rules</div>
+    <div class="section-desc">These apply to every single call, no exceptions.</div>
+    <div class="rules-grid">
+      <div class="rule-card">
+        <div class="rule-label do">Always Do</div>
+        <div class="rule-text">Ask questions before you say anything about yourself or pricing. Understand them first.</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-label dont">Never Do</div>
+        <div class="rule-text">Give a price before you know their situation. Never. Even if they ask directly, redirect first.</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-label do">Always Do</div>
+        <div class="rule-text">Close toward the next small step, not the full sale. Get them to a consultation, not a payment.</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-label dont">Never Do</div>
+        <div class="rule-text">Use filler words: um, uh, like, you know, sort of. Pause silently instead. Silence sounds confident.</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-label do">Always Do</div>
+        <div class="rule-text">Sound calm and certain. You know the SAT better than this parent. Own that.</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-label dont">Never Do</div>
+        <div class="rule-text">Volunteer information they didn't ask for. Answer what was asked, then stop talking.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: CALL FLOW -->
+  <div class="section">
+    <div class="section-title">The Call Flow</div>
+    <div class="section-desc">Follow this sequence every time. Do not skip steps.</div>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-label">Opening</div>
+        <div class="step-heading">Answer and take control immediately</div>
+        <div class="step-body">Pick up confidently. State your name. Then immediately flip it to them with a question so you control the conversation from the start.</div>
+        <div class="script-box">
+          <strong>Say This</strong>
+          "Hey, this is Romaan. Thanks for reaching out. Before I tell you about what I offer, can I ask a few quick questions about your son or daughter?"
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-label">Qualify</div>
+        <div class="step-heading">Understand exactly who you're dealing with</div>
+        <div class="step-body">Ask these four questions in order. Listen carefully. Take mental notes. This tells you what kind of student and what kind of close you need.</div>
+        <div class="script-box">
+          <strong>Ask In Order</strong>
+          1. "What grade is your son/daughter in?"<br><br>
+          2. "Have they taken the SAT yet? Do you have a score?"<br><br>
+          3. "Do you have a target score in mind, or a specific college they're aiming for?"<br><br>
+          4. "Have they done any SAT prep before, or would this be starting from scratch?"
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-label">Educate If Needed</div>
+        <div class="step-heading">If they don't understand why SAT matters, tell them</div>
+        <div class="step-body">Some parents, especially newer immigrants or those unfamiliar with US college admissions, genuinely don't know how much SAT scores matter. This is your opportunity. Inform them, don't lecture them.</div>
+        <div class="script-box">
+          <strong>If They Seem Unaware</strong>
+          "Just so you have the full picture - for most competitive colleges, SAT scores are still one of the biggest factors in admissions. A 100 to 200 point improvement can genuinely change which schools your son gets accepted to. That's what we focus on - targeted improvement in the areas that are actually hurting the score."
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <div class="step-label">Position Yourself</div>
+        <div class="step-heading">Now briefly explain who you are and why it matters</div>
+        <div class="step-body">Keep this short. One or two sentences. Your score is the credential. Let it speak.</div>
+        <div class="script-box">
+          <strong>Say This</strong>
+          "I'm a Zionsville senior. I scored 1550 on the SAT - 790 Math, 760 Reading and Writing. I've been through this exact test recently, so I know exactly where students lose points and how to fix it."
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <div class="step-label">Handle Pricing</div>
+        <div class="step-heading">If they ask about price, redirect - don't answer yet</div>
+        <div class="step-body">You cannot give a fair price without seeing the student's score report. This is genuinely true, so say it. It's not evasive, it's accurate.</div>
+        <div class="script-box">
+          <strong>If They Ask Price</strong>
+          "Honestly it depends on where your son is starting and what we're trying to reach. I don't want to give you a number that doesn't make sense for your situation. Once I see a score report I can tell you exactly what kind of plan we're looking at and what it costs. Can he take a practice test this week?"
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">6</div>
+      <div class="step-content">
+        <div class="step-label">Close</div>
+        <div class="step-heading">Always close toward the free consultation, not the sale</div>
+        <div class="step-body">The goal of this call is one thing: get them to agree to a 20-minute free consultation. That's it. Don't try to sell the full package on a cold call.</div>
+        <div class="script-box">
+          <strong>Say This</strong>
+          "How about this - let's set up a free 20-minute call with you and your son so I can hear where he's at and what he's working toward. No commitment, no pressure. If it seems like a good fit after that we can talk about next steps. Does that work for you?"
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SECTION 3: COUNTERS -->
+  <div class="section">
+    <div class="section-title">When They Say This</div>
+    <div class="section-desc">Common objections and exactly how to respond.</div>
+    <table class="counter-table">
+      <thead>
+        <tr>
+          <th>They Say</th>
+          <th>You Say</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>"Just give me a rough number"</td>
+          <td>"I genuinely can't give you a fair number without knowing where your son is starting. It would either be too high or too low for your situation. Let me look at the score report first."</td>
+        </tr>
+        <tr>
+          <td>"We already have a tutor"</td>
+          <td>"That's totally fine. If things ever change or you want a second opinion on the approach, feel free to reach back out."</td>
+        </tr>
+        <tr>
+          <td>"Is this a real tutoring company?"</td>
+          <td>"I'm a local Zionsville senior offering private one-on-one tutoring. I scored 1550 on the SAT and I work only with real College Board materials. It's personalized in a way most tutoring centers can't match."</td>
+        </tr>
+        <tr>
+          <td>"My son doesn't know what score he got"</td>
+          <td>"No problem. He can take a free official College Board practice test at home and we can use that as our starting point. I'll score it and we go from there."</td>
+        </tr>
+        <tr>
+          <td>"We'll think about it"</td>
+          <td>"Of course. Just so you know, spots are limited before the May test date. If you want to lock something in, the free consultation doesn't cost anything and there's no commitment. Want to put something on the calendar now just in case?"</td>
+        </tr>
+        <tr>
+          <td>"Can you guarantee a score increase?"</td>
+          <td>"I can't guarantee a specific number because it depends on how much work the student puts in between sessions. What I can tell you is that every student I work with gets a personalized plan targeting their exact weak areas using only real SAT questions. That's the most effective way to improve."</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SECTION 4: PRICING STRUCTURE -->
+  <div class="section">
+    <div class="section-title">Pricing Structure</div>
+    <div class="section-desc">Know this cold before every call. Never hesitate when you finally do give a number.</div>
+    <div class="pricing-box">
+      <div class="pricing-box-title">What We Charge</div>
+      <div class="pricing-row">
+        <div class="pricing-row-label">Hourly rate</div>
+        <div class="pricing-row-value">$35/hr <span class="tag tag-green">Standard</span></div>
+      </div>
+      <div class="pricing-row">
+        <div class="pricing-row-label">Base package (4 sessions x 1hr)</div>
+        <div class="pricing-row-value">$130 <span class="tag tag-green">Slight discount for committing</span></div>
+      </div>
+      <div class="pricing-row">
+        <div class="pricing-row-label">Extended package (8 sessions x 1hr)</div>
+        <div class="pricing-row-value">$250 <span class="tag tag-green">Best value</span></div>
+      </div>
+      <div class="pricing-row">
+        <div class="pricing-row-label">When to offer a discount</div>
+        <div class="pricing-row-value">Only if they explicitly push back on price. Never volunteer it.</div>
+      </div>
+      <div class="pricing-row">
+        <div class="pricing-row-label">When NOT to discount</div>
+        <div class="pricing-row-value">If they haven't said no yet. Silence is not a no. <span class="tag tag-red">Do not fold</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: STUDENT TYPES -->
+  <div class="section">
+    <div class="section-title">Student Types and How to Handle Them</div>
+    <div class="section-desc">Every inquiry falls into one of these buckets. Identify fast, adjust approach.</div>
+
+    <div class="step">
+      <div class="step-num">A</div>
+      <div class="step-content">
+        <div class="step-label">Type</div>
+        <div class="step-heading">The motivated student with a clear target</div>
+        <div class="step-body">Knows their score, knows their target school, just needs help. Easiest close. Go straight to building a plan and discussing sessions.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">B</div>
+      <div class="step-content">
+        <div class="step-label">Type</div>
+        <div class="step-heading">The parent who has no idea</div>
+        <div class="step-body">Like your first call. Doesn't know score, doesn't know target, may not fully understand SAT importance. Educate first. Ask if their child is a citizen or international student - international students need stronger scores and this creates urgency. Then redirect to a consultation.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">C</div>
+      <div class="step-content">
+        <div class="step-label">Type</div>
+        <div class="step-heading">The price shopper</div>
+        <div class="step-body">First question is about cost. Don't give it. Redirect to understanding their situation. If they keep pushing after you've explained your approach, give the hourly rate confidently and don't apologize for it.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">D</div>
+      <div class="step-content">
+        <div class="step-label">Type</div>
+        <div class="step-heading">The comparison shopper</div>
+        <div class="step-body">Already looking at other tutors or centers. Differentiate clearly: "Most tutoring centers use third-party practice materials. I use only real College Board questions - the exact same ones that appear on the actual test. That matters a lot for score improvement."</div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+</body>
+</html>
